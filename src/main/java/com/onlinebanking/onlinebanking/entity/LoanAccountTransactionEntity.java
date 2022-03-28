@@ -10,10 +10,10 @@ import javax.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
 @Getter
 @Setter
-public class LoanAccountEntity {
+@Entity
+public class LoanAccountTransactionEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,16 +22,12 @@ public class LoanAccountEntity {
   private Long customerId;
 
   @ManyToOne
-  @JoinColumn(name = "loan_product_id", nullable = false)
-  private LoanProductEntity loanProductEntity;
+  @JoinColumn(name = "loan_account_id")
+  private LoanAccountEntity loanAccount;
 
-  private LocalDate disbursementDate;
+  private LocalDate collectionDate;
 
-  private Long disbursedAmount;
+  private Long realizedAmount;
 
-  private Long realizableAmount;
-
-  private Long outstandingAmount;
-
-  private LocalDate closingDate;
+  private Long outstandingAfterCollection;
 }
