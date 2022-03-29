@@ -1,12 +1,12 @@
-spring:
-  datasource:
-    username: postgres
-    url: jdbc:postgresql://localhost:5432/online-banking
-    driverClassName: org.postgresql.Driver
-    password: abc123
-  jpa:
-    generate-ddl: 'true'
-    hibernate:
-      ddl-auto: update
-server:
-  port: '8081'
+#spring:
+#  datasource:
+#    username: postgres
+#    url: jdbc:postgresql://localhost:5432/online-banking
+#    driverClassName: org.postgresql.Driver
+#    password: abc123
+#  jpa:
+#    generate-ddl: 'true'
+#    hibernate:
+#      ddl-auto: update
+#server:
+#  port: '8081'

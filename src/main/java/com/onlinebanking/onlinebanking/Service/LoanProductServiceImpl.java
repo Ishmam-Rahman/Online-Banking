@@ -6,16 +6,23 @@ import com.onlinebanking.onlinebanking.Repository.LoanProductRepository;
 import com.onlinebanking.onlinebanking.entity.LoanProductEntity;
 import java.util.List;
 import java.util.stream.Collectors;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 @Service
+@Slf4j
 public class LoanProductServiceImpl
     implements LoanProductService {
 
   private final LoanProductRepository loanProductRepository;
+
+  @Value("${environment.massage}")
+  String massage;
+
   ModelMapper modelMapper = new ModelMapper();
 
   public LoanProductServiceImpl(
@@ -46,6 +53,7 @@ public class LoanProductServiceImpl
 
   @Override
   public List<LoanProductDto> getAll(Pageable pageable) {
+    log.info("Environment: "+massage);
     return loanProductRepository.findAll(pageable).stream()
         .map(i -> modelMapper.map(i, LoanProductDto.class)).collect(
             Collectors.toList());
