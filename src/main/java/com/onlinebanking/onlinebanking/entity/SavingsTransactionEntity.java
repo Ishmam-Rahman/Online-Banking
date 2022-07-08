@@ -10,10 +10,10 @@ import javax.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
 @Getter
 @Setter
-public class SavingsAccountEntity {
+@Entity
+public class SavingsTransactionEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,15 +21,17 @@ public class SavingsAccountEntity {
 
   private Long customerId;
 
+  private Long toCustomerId;
+
+  private LocalDate transferDate;
+
+  private Long transferredAmount;
+
   @ManyToOne
-  @JoinColumn(name = "savings_product_id")
-  private SavingsProductEntity savingsProduct;
+  @JoinColumn(name = "savings_account_id", nullable = false)
+  private SavingsAccountEntity savingsAccountEntity;
 
-  private LocalDate openingDate;
+  private Boolean isDeposit = Boolean.FALSE;
 
-  private LocalDate closingDate;
-
-  private Long currentAmount;
-
-  private Long targetAmount;
+  private Boolean isWithdrawal = Boolean.FALSE;
 }

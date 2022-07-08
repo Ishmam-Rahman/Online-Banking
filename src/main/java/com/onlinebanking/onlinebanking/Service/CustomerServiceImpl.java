@@ -41,8 +41,9 @@ public class CustomerServiceImpl
 
   @Override
   public List<CustomerDto> getAll(Pageable pageable) {
-    return customerRepository.findAll(pageable).stream().map(i->modelMapper.map(i, CustomerDto.class)).collect(
-        Collectors.toList());
+    return customerRepository.findAll(pageable).stream()
+        .map(i -> modelMapper.map(i, CustomerDto.class)).collect(
+            Collectors.toList());
   }
 
   @Override

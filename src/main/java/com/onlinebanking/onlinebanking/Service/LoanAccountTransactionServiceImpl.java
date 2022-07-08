@@ -37,6 +37,7 @@ public class LoanAccountTransactionServiceImpl
         transactionDto.getLoanAccountId());
 
 
+    //TODO need to save the loan account also
     loanAccount.setOutstandingAmount(loanAccount.getOutstandingAmount()-
         transactionDto.getRealizedAmount());
 

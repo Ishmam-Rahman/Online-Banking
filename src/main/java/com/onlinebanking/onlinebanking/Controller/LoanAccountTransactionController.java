@@ -23,27 +23,27 @@ public class LoanAccountTransactionController {
     this.loanAccountTransactionService = loanAccountTransactionService;
   }
 
-  @GetMapping( "/all-lona-account-transaciton")
+  @GetMapping( "/all-lona-account-transaction")
   public List<LoanAccountTransactionDto> getAllLoanAccountTransaction(Pageable pageable) {
     return loanAccountTransactionService.getAll(pageable);
   }
 
-  @GetMapping( "/loan-account-transaciton/{id}")
+  @GetMapping( "/loan-account-transaction/{id}")
   public LoanAccountTransactionDto getLoanAccountTransaction(@PathVariable Long id) {
     return loanAccountTransactionService.getById(id);
   }
 
-  @PostMapping( "/create-loan-account-transaciton")
+  @PostMapping( "/create-loan-account-transaction")
   public LoanAccountTransactionDto createLoanAccountTransaction(@RequestBody LoanAccountTransactionDto loanAccountTransactionDto) {
     return loanAccountTransactionService.create(loanAccountTransactionDto);
   }
 
-  @PutMapping( "/update-loan-account-transaciton")
+  @PutMapping( "/update-loan-account-transaction")
   public LoanAccountTransactionDto updateLoanAccountTransaction(@RequestBody LoanAccountTransactionDto loanAccountTransactionDto) {
     return loanAccountTransactionService.update(loanAccountTransactionDto);
   }
 
-  @DeleteMapping( "/delete-loan-account-transaciton/{id}")
+  @DeleteMapping( "/delete-loan-account-transaction/{id}")
   public HttpStatus updateLoanAccount(@PathVariable Long id) {
     return loanAccountTransactionService.delete(id);
   }

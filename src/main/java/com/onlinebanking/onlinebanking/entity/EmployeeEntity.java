@@ -11,6 +11,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@Deprecated
 public class EmployeeEntity {
 
   @Id

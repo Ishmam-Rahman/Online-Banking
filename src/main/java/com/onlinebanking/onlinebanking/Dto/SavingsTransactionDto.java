@@ -1,5 +1,6 @@
-package com.onlinebanking.onlinebanking.entity;
+package com.onlinebanking.onlinebanking.Dto;
 
+import com.onlinebanking.onlinebanking.entity.SavingsAccountEntity;
 import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,10 +11,10 @@ import javax.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
 @Getter
 @Setter
-public class SavingsAccountEntity {
+@Entity
+public class SavingsTransactionDto {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,15 +22,15 @@ public class SavingsAccountEntity {
 
   private Long customerId;
 
-  @ManyToOne
-  @JoinColumn(name = "savings_product_id")
-  private SavingsProductEntity savingsProduct;
+  private Long toCustomerId;
 
-  private LocalDate openingDate;
+  private LocalDate transferDate;
 
-  private LocalDate closingDate;
+  private Long transferredAmount;
 
-  private Long currentAmount;
+  private Long savingsAccountId;
 
-  private Long targetAmount;
+  private Boolean isDeposit = Boolean.FALSE;
+
+  private Boolean isWithdrawal = Boolean.FALSE;
 }

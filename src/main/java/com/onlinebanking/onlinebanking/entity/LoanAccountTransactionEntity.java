@@ -1,5 +1,6 @@
 package com.onlinebanking.onlinebanking.entity;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
